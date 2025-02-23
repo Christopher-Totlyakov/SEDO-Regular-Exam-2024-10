@@ -14,19 +14,10 @@ pipeline {
             }
         }
 
-        stage('Run Integration Tests') {
+        stage('Run Tests') {
             steps {
                 bat 'dotnet test --no-build --verbosity normal'
             }
-        }
-    }
-
-    post {
-        success {
-            echo 'Build and tests passed successfully!'
-        }
-        failure {
-            echo 'Build or tests failed. Check the logs for more details.'
         }
     }
 }
